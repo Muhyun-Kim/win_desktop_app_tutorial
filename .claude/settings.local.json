@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node:*)",
+      "Bash(npm:*)",
+      "Bash(yarn --version)",
+      "Bash(rustc:*)",
+      "Bash(cargo --version)",
+      "Bash(powershell:*)",
+      "Bash(where:*)",
+      "Bash(mv:*)",
+      "Bash(true)",
+      "Bash(rmdir:*)",
+      "Bash(rm:*)"
+    ],
+    "deny": []
+  }
+}
