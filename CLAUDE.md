@@ -61,3 +61,8 @@ win-desktop-app-tutorial/
 - Frontend: Chrome DevTools automatically opens with `yarn tauri dev`
 - Backend: Use VS Code with rust-analyzer extension
 - Console logs from Rust appear in the terminal
+
+## Important Instructions
+- NEVER modify code unless explicitly requested by the user
+- Only provide explanations and examples without editing files
+- Wait for user's explicit request before making any code changes
