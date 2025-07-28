@@ -2,21 +2,32 @@
     import { page } from '$app/state';
     import { Save, ChevronLeft } from 'lucide-svelte';
     import { goto } from '$app/navigation';
+    import { createMemo, type Memo } from '../../../lib/db';
 
     $: id = page.params.id;
 
-    type Memo = {
+    interface UserMemo {
         id: number | string;
         title: string;
         content: string;
     }
-    let memo: Memo = {
+    let memo: UserMemo = {
         id: id!,
         title: '',
         content: '',
     }
     const handleSave = async () => {
         console.log(memo);
+        if(memo.id === 'new'){
+            const newMemo: Memo = {
+                title: memo.title,
+                content: memo.content,
+                created_at: new Date().toISOString(),
+                updated_at: new Date().toISOString(),
+            }
+            await createMemo(newMemo);
+            goto('/');
+        }
     }
 </script>
 
@@ -47,11 +58,5 @@
     padding: 10px;
     background-color: #f0f0f0;
     border-bottom: 1px solid #ccc;
-  }
-  h1 {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
   }
 </style>
